@@ -7,7 +7,6 @@ import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { RootState } from '../../store/store';
 import Button from '../button/Button';
 import ImagesProductsImport from '../../services/imagesProductsImport';
-('../../services/imagesProductsImport');
 
 const ProductItem = (props: Product) => {
   const dispatch = useAppDispatch();
@@ -15,14 +14,13 @@ const ProductItem = (props: Product) => {
     return state.cart;
   });
   const imageImport = ImagesProductsImport;
-  const imagePath = imageImport[props.id];
+  const imagePath = imageImport[props.id - 1];
   const lastItem = cart.items[cart.items.length - 1];
   const id = lastItem ? lastItem.id + 1 : 1;
-  const { name, image, description, price } = props;
+  const { name, description, price } = props;
   const item = {
     id,
     name,
-    image,
     description,
     price,
   };
