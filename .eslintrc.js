@@ -20,6 +20,20 @@ module.exports = {
     'arrow-body-style': ['error', 'always'],
     '@typescript-eslint/no-unused-vars': ['error'],
     '@typescript-eslint/no-explicit-any': 'error',
+    'comma-dangle': ['off'],
+    'no-param-reassign': [
+      'error',
+      {
+        props: true,
+        ignorePropertyModificationsFor: [
+          'draft',
+          'draftState',
+          'draftStateRef',
+          'state',
+          'stateRef',
+        ],
+      },
+    ],
     'react/function-component-definition': [
       2,
       { namedComponents: 'arrow-function' },
