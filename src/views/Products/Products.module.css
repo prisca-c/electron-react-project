@@ -1,0 +1,10 @@
+.product {
+  width: 70vw;
+  margin: auto;
+}
+
+.list {
+  display: grid;
+  grid-template:  1fr 1fr 1fr / 1fr 1fr 1fr;
+  margin-top: 5rem;
+}

@@ -1,0 +1,39 @@
+.navbar {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding: 0 1rem;
+  background-color: #fff;
+}
+
+.link {
+  position: relative;
+  color: #000;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 0.7rem 1rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.link:hover, .link.active:hover {
+  background-color: #b8ffe5;
+}
+
+.link.active {
+  background-color: #f2f2f2;
+}
+
+.count {
+  position: absolute;
+  top: 0;
+  right: -0.5rem;
+  aspect-ratio: 1/1;
+  width: 15px;
+  padding: 0.2rem;
+  border-radius: 50%;
+  background-color: #f44336;
+  color: #fff;
+  font-size: 0.8rem;
+}
+
