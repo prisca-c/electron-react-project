@@ -1,33 +1,30 @@
 import { PropsWithChildren, ReactNode } from 'react';
 import Styles from './Button.module.scss';
 
-type Children = {
-  text: string;
-  icon?: ReactNode;
-};
-
 interface ButtonProps {
-  children?: Children;
+  children?: ReactNode;
+  icon?: ReactNode;
   onClick: () => void;
   variant: 'primary' | 'secondary';
 }
 
 const Button = (props: PropsWithChildren<ButtonProps>) => {
-  const { children, onClick, variant } = props;
+  const { children, icon, onClick, variant } = props;
   return (
     <button
       type="button"
-      className={`${Styles.button} ${Styles[variant]}`}
       onClick={onClick}
+      className={`${Styles.button} ${Styles[variant]}`}
     >
-      {children?.icon}
-      {children?.text}
+      <span className={Styles.icon}>{icon}</span>
+      {children}
     </button>
   );
 };
 
 Button.defaultProps = {
   children: null,
+  icon: null,
 };
 
 export default Button;
