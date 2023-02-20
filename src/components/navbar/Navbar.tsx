@@ -3,13 +3,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import Styles from './Navbar.module.css';
 import { RootState } from '../../store/store';
-import { useAppSelector } from '../../store/hooks';
+import { useAppSelector } from '../../hooks/useAppSelector';
 
 const Navbar = () => {
-  const itemsCount = useAppSelector((state: RootState) => {
-    return state.cart.itemsCount;
-  });
-
   const activeClass = `${Styles.link} ${Styles.active}`;
 
   return (
@@ -21,23 +17,6 @@ const Navbar = () => {
         }}
       >
         Home
-      </NavLink>
-      <NavLink
-        to="/products"
-        className={({ isActive }) => {
-          return isActive ? activeClass : Styles.link;
-        }}
-      >
-        Products
-      </NavLink>
-      <NavLink
-        to="/cart"
-        className={({ isActive }) => {
-          return isActive ? activeClass : Styles.link;
-        }}
-      >
-        <FontAwesomeIcon icon={faShoppingCart} />
-        <p className={Styles.count}>{itemsCount}</p>
       </NavLink>
     </nav>
   );
