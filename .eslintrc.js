@@ -2,9 +2,11 @@ module.exports = {
   extends: [
     'erb',
     'airbnb',
+    'airbnb-base',
     'airbnb/hooks',
     'plugin:import/typescript',
     'plugin:@typescript-eslint/recommended',
+    'prettier',
   ],
   rules: {
     // A temporary hack related to IDE not resolving correct package.json
@@ -16,11 +18,14 @@ module.exports = {
     'import/extensions': 'off',
     'import/no-unresolved': 'off',
     'import/no-import-module-exports': 'off',
+    'import/prefer-default-export': 'off',
+    'import/no-cycle': 'off',
     'jsx-a11y/href-no-hash': ['off'],
-    'arrow-body-style': ['error', 'always'],
+    'arrow-body-style': ['error', 'as-needed'],
     '@typescript-eslint/no-unused-vars': ['error'],
     '@typescript-eslint/no-explicit-any': 'error',
     'comma-dangle': ['off'],
+    'no-shadow': 'off',
     'no-param-reassign': [
       'error',
       {
@@ -31,6 +36,7 @@ module.exports = {
           'draftStateRef',
           'state',
           'stateRef',
+          'WritableDraft',
         ],
       },
     ],
