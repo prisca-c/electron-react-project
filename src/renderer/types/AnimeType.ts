@@ -1,0 +1,47 @@
+import type { Broadcast } from './AnimePropsType/Broadcast';
+import type { Relational } from './AnimePropsType/Relational';
+import type { Image, ImageFormat } from './AnimePropsType/Images';
+import type { Trailer } from './AnimePropsType/Trailer';
+import type { Title } from './AnimePropsType/Title';
+import type { Aired } from './AnimePropsType/Aired';
+
+type AnimeType = {
+  mal_id: number;
+  url: string;
+  images: { [key in ImageFormat]: Image };
+  trailer: Trailer;
+  approved: boolean;
+  titles: Title[];
+  title: string;
+  title_english: null;
+  title_japanese: string;
+  title_synonyms: string[];
+  type: string;
+  source: string;
+  episodes: number;
+  status: string;
+  airing: boolean;
+  aired: Aired;
+  duration: string;
+  rating: string;
+  score: number;
+  scored_by: number;
+  rank: number;
+  popularity: number;
+  members: number;
+  favorites: number;
+  synopsis: string;
+  background: string;
+  season: string;
+  year: number;
+  broadcast: Broadcast;
+  producers: Relational[];
+  licensors: Relational[];
+  studios: Relational[];
+  genres: Relational[];
+  explicit_genres: unknown[];
+  themes: Relational[];
+  demographics: Relational[];
+};
+
+export default AnimeType;
