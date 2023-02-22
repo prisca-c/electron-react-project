@@ -1,23 +1,17 @@
-import { NavLink } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { useState } from 'react';
+import NavItem from './navItem/NavItem';
 import Styles from './Navbar.module.css';
-import { RootState } from '../../store/store';
-import { useAppSelector } from '../../hooks/useAppSelector';
+import WatchListNavIcon from './watchListNavIcon/WatchListNavIcon';
+import WatchListPopUp from './watchListPopUp/WatchListPopUp';
 
 const Navbar = () => {
-  const activeClass = `${Styles.link} ${Styles.active}`;
+  const [showPopUp, setShowPopUp] = useState(false);
 
   return (
     <nav className={Styles.navbar}>
-      <NavLink
-        to="/"
-        className={({ isActive }) => {
-          return isActive ? activeClass : Styles.link;
-        }}
-      >
-        Home
-      </NavLink>
+      <NavItem />
+      <WatchListNavIcon setPopUp={() => setShowPopUp(!showPopUp)} />
+      {showPopUp && <WatchListPopUp />}
     </nav>
   );
 };

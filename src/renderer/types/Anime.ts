@@ -5,7 +5,7 @@ import type { Trailer } from './AnimePropsType/Trailer';
 import type { Title } from './AnimePropsType/Title';
 import type { Aired } from './AnimePropsType/Aired';
 
-type AnimeType = {
+type Anime = {
   mal_id: number;
   url: string;
   images: { [key in ImageFormat]: Image };
@@ -44,4 +44,4 @@ type AnimeType = {
   demographics: Relational[];
 };
 
-export default AnimeType;
+export default Anime;

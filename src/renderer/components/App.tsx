@@ -1,17 +1,10 @@
-import { Routes, Route } from 'react-router-dom';
 import '../../assets/styles/Main.scss';
-import Navbar from './navbar/Navbar';
-import Home from '../views/Home/Home';
+import MainRoutes from '../routes/MainRoutes';
 
-const App = () => {
-  return (
-    <div className="App">
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
-    </div>
-  );
-};
+const App = () => (
+  <div className="App">
+    <MainRoutes />
+  </div>
+);
 
 export default App;

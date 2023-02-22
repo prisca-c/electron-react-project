@@ -1,0 +1,17 @@
+.title {
+  text-align: center;
+}
+
+.cardList {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  gap: 4rem;
+  padding: 0 5rem;
+  @media (max-width: 1920px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.recommendations {
+  margin-top: 4rem;
+}

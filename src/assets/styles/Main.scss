@@ -1,20 +1,9 @@
-/*
- * @NOTE: Prepend a `~` to css file paths that are in your node_modules
- *        See https://github.com/webpack-contrib/sass-loader#imports
- */
+@import url(https://fonts.bunny.net/css?family=albert-sans:300,300i,600,600i,800,800i,900,900i);
+
 body {
   position: relative;
-  color: white;
-  background: linear-gradient(
-    200.96deg,
-    #fedc2a -29.09%,
-    #dd5789 51.77%,
-    #7a2c9e 129.35%
-  );
-  font-family: sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  color: gray;
+  font-family: 'Albert Sans', sans-serif;
 }
 
 button {
@@ -36,6 +25,30 @@ button:hover {
   opacity: 1;
 }
 
+a {
+  color: #651010;
+  text-decoration: none;
+}
+
 li {
   list-style: none;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
 }

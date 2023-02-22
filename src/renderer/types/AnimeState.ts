@@ -1,8 +1,8 @@
-import StatusType from './StatusType';
-import AnimeType from './AnimeType';
+import StatusType from './Status';
+import Anime from './Anime';
 
 export type AnimeState = {
   status: StatusType;
-  info: AnimeType | Record<string, null>;
+  info: Anime | null;
   error: string;
 };
