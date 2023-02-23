@@ -7,10 +7,11 @@ import {
   fetchAnimeSuccessCase,
 } from '../actions/fetchAnimeActions';
 import fetchAnimeById from '../effetcs/animeFetchEffect';
+import { nullAnimeType } from '../../types/AnimeType';
 
 const initialState: AnimeStateType = {
   status: StatusType.start,
-  info: null,
+  info: nullAnimeType,
   error: '',
 };
 

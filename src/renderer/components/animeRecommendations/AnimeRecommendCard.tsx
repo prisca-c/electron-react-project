@@ -1,53 +1,45 @@
 import { MouseEvent, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useAppDispatch, useAppHook } from 'renderer/hooks/useAppHook';
-import fetchAnimeById from 'renderer/store/effetcs/animeFetchEffect';
+import { useAppDispatch, useAppSelector } from 'renderer/hooks/useAppSelector';
 import { watchListAction } from 'renderer/store/slices/watchListSlice';
 import { selectAnimes } from 'renderer/store/selectors/animeSelector';
 import AnimeType from 'renderer/types/AnimeType';
 import Button from '../buttons/Button';
 import Styles from './AnimeRecommendCard.module.scss';
-import { useFetchRecommendationsQuery } from '../../store/slices/fetchApiSlice';
 import { AnimeRecommendation } from '../../types/AnimeRecommendedType';
+import { getAnimeById } from '../../services/animeServices';
 
-export const AnimeRecommendCard = () => {
-  const { data, error, isLoading } = useFetchRecommendationsQuery(0);
+type AnimeRecommendCardProps = {
+  data: AnimeRecommendation[];
+};
+
+export const AnimeRecommendCard = (props: AnimeRecommendCardProps) => {
   const [selectAnime, setSelectAnime] = useState<AnimeType | null>();
   const dispatch = useAppDispatch();
-  const animeSelector = useAppHook(selectAnimes);
+  const animeSelector = useAppSelector(selectAnimes);
+  const { data } = props;
 
   useEffect(() => {
     if (animeSelector !== null) {
       setSelectAnime(animeSelector.info);
     }
-  }, [animeSelector, selectAnime]);
-
-  console.log(data);
+  }, [animeSelector, selectAnime, dispatch]);
 
   const checkIfAnimeExists = async (id: number) => {
-    await dispatch(fetchAnimeById({ id }));
+    await getAnimeById(id);
   };
 
   const addToWatchList = async (e: MouseEvent<HTMLButtonElement>) => {
-    const id = parseInt(e.currentTarget.value, 10);
-    e.preventDefault();
+    const id = Number(e.currentTarget.value);
     await checkIfAnimeExists(id).then((response) => {
-      if (animeSelector.info !== null) {
-        dispatch(watchListAction.addAnime({ anime: animeSelector.info }));
-      }
+      dispatch(watchListAction.addAnime({ anime: animeSelector.info }));
       return response;
     });
   };
 
-  const show = () => {
-    const animes = data;
-
-    if (isLoading) {
-      return <p>Loading...</p>;
-    }
-
-    if (animes) {
-      return animes.map((anime: AnimeRecommendation) => (
+  return (
+    <>
+      {data.map((anime: AnimeRecommendation) => (
         <div key={anime.mal_id + anime.date} className={Styles.card}>
           <h3 className={Styles.title}>{anime.entry[0].title}</h3>
           <p className={Styles.link}>
@@ -77,15 +69,7 @@ export const AnimeRecommendCard = () => {
           </p>
           <p>{anime.content}</p>
         </div>
-      ));
-    }
-
-    if (error) {
-      return <p>Something went wrong.</p>;
-    }
-
-    return <p>No recommendations found.</p>;
-  };
-
-  return <>{show()}</>;
+      ))}
+    </>
+  );
 };

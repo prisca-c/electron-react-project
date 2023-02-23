@@ -2,11 +2,11 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import type AnimeType from '../../types/AnimeType';
 import { AnimeRecommendation } from '../../types/AnimeRecommendedType';
 
-type DataAnime = {
+export type DataAnime = {
   data: AnimeType;
 };
 
-type DataAnimeRecommendation = {
+export type DataAnimeRecommendation = {
   data: AnimeRecommendation[];
 };
 

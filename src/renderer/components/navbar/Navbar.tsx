@@ -6,11 +6,15 @@ import WatchListPopUp from './watchListPopUp/WatchListPopUp';
 
 const Navbar = () => {
   const [showPopUp, setShowPopUp] = useState(false);
+  const watchListNavIconProps = {
+    setPopUp: setShowPopUp,
+    showPopUp,
+  };
 
   return (
     <nav className={Styles.navbar}>
       <NavItem />
-      <WatchListNavIcon setPopUp={() => setShowPopUp(!showPopUp)} />
+      <WatchListNavIcon {...watchListNavIconProps} />
       {showPopUp && <WatchListPopUp />}
     </nav>
   );

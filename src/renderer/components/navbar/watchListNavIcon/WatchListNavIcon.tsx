@@ -1,15 +1,25 @@
-import { ComponentProps } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
-import { useAppHook } from '../../../hooks/useAppHook';
+import { Dispatch, SetStateAction } from 'react';
+import { useAppSelector } from '../../../hooks/useAppSelector';
 import Styles from './WatchListNavIcon.module.scss';
 
-const WatchListNavIcon = (props: unknown) => {
-  const watchList = useAppHook((state) => state.watchList.length);
-  const { setPopUp } = props;
+interface WatchListNavIconProps {
+  setPopUp: Dispatch<SetStateAction<boolean>>;
+  showPopUp: boolean;
+}
+
+const WatchListNavIcon = (props: WatchListNavIconProps) => {
+  const watchList = useAppSelector((state) => state.watchList.count);
+  const { setPopUp, showPopUp } = props;
 
   return (
-    <div className={Styles.box} onClickCapture={setPopUp}>
+    <div
+      className={Styles.box}
+      onClickCapture={() => {
+        setPopUp(!showPopUp);
+      }}
+    >
       <FontAwesomeIcon
         icon={faHeart}
         className={Styles.icon}

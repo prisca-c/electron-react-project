@@ -1,8 +1,8 @@
 import { selectWatchList } from 'renderer/store/selectors/watchListSelector';
-import { useAppHook } from 'renderer/hooks/useAppHook';
+import { useAppSelector } from 'renderer/hooks/useAppSelector';
 
 const WatchListPopUpItem = () => {
-  const { watchList } = useAppHook(selectWatchList);
+  const { watchList } = useAppSelector(selectWatchList);
   console.log(watchList);
 
   return (
