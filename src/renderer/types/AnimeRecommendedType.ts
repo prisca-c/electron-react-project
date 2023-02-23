@@ -19,3 +19,32 @@ export type AnimeRecommendation = {
   date: string;
   user: User;
 };
+
+export const nullAnimeRecommendation: AnimeRecommendation = {
+  mal_id: '',
+  entry: [
+    {
+      mal_id: 0,
+      url: '',
+      images: {
+        jpg: {
+          image_url: '',
+          large_image_url: '',
+          small_image_url: '',
+        },
+        webp: {
+          image_url: '',
+          large_image_url: '',
+          small_image_url: '',
+        },
+      },
+      title: '',
+    },
+  ],
+  content: '',
+  date: '',
+  user: {
+    url: '',
+    username: '',
+  },
+};
