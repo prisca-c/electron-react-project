@@ -6,10 +6,7 @@ import AnimeType from 'renderer/types/AnimeType';
 export const getAnimeById = async (id: number): Promise<AnimeType> =>
   api
     .get(`/anime/${id}`)
-    .then((res) => {
-      console.log(res.data.data);
-      return res.data.data;
-    })
+    .then((res) => res.data.data)
     .catch((err) => {
       const error: AxiosError<ErrorApiType> = err;
       throw new Error(error.response?.data.message);
