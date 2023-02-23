@@ -3,14 +3,11 @@ import fetchAnimeById from 'renderer/store/effetcs/animeFetchEffect';
 import { nullAnimeStateType } from 'renderer/types/AnimeStateType';
 import { nullAnimeType } from 'renderer/types/AnimeType';
 import StatusType from 'renderer/types/StatusType';
-import { getAnimeById } from '../animeServices';
 
 describe('animesSlice', () => {
   it('should return the initial state', () => {
     expect(reducer(undefined, { type: undefined })).toEqual(nullAnimeStateType);
   });
-
-  const payload = getAnimeById(1);
 
   it('should handle fetchAnimeById.pending', () => {
     const action = fetchAnimeById.pending('1', { id: 1 });
