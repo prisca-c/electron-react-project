@@ -1,4 +1,4 @@
-type ErrorApi = {
+type ErrorApiType = {
   status: number;
   type: string;
   message: string;
@@ -6,4 +6,4 @@ type ErrorApi = {
   report_url: string;
 };
 
-export default ErrorApi;
+export default ErrorApiType;

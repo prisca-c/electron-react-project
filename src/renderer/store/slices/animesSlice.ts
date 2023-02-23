@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { AnimeState } from 'renderer/types/AnimeState';
-import Status from '../../types/Status';
+import { AnimeStateType } from 'renderer/types/AnimeStateType';
+import StatusType from '../../types/StatusType';
 import {
   fetchAnimeFailureCase,
   fetchAnimeStartCase,
@@ -8,8 +8,8 @@ import {
 } from '../actions/fetchAnimeActions';
 import fetchAnimeById from '../effetcs/animeFetchEffect';
 
-const initialState: AnimeState = {
-  status: Status.start,
+const initialState: AnimeStateType = {
+  status: StatusType.start,
   info: null,
   error: '',
 };

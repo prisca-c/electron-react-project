@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import AnimeType from '../../types/Anime';
+import AnimeType from '../../types/AnimeType';
 import { addAnime, removeAnime } from '../actions/watchListActions';
 
 export type WatchListState = {

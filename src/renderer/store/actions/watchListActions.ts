@@ -1,6 +1,6 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
 import type { WatchListState } from '../slices/watchListSlice';
-import AnimeType from '../../types/Anime';
+import AnimeType from '../../types/AnimeType';
 
 const addAnime = (
   state: WatchListState,

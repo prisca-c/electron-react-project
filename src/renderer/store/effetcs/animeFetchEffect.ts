@@ -1,10 +1,10 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import ErrorApi from 'renderer/types/ErrorApi';
-import Anime from '../../types/Anime';
+import ErrorApiType from 'renderer/types/ErrorApiType';
+import AnimeType from '../../types/AnimeType';
 import { getAnimeById } from '../../services/animeServices';
 
 const fetchAnimeById = createAsyncThunk<
-  { info: Anime },
+  { info: AnimeType },
   { id: number },
   { rejectValue: { error: string } }
 >('animes/fetchAnimeById', async (params, thunkAPI) => {
@@ -15,7 +15,7 @@ const fetchAnimeById = createAsyncThunk<
     return fulfillWithValue({ info });
   } catch (error) {
     return rejectWithValue({
-      error: (error as ErrorApi).message,
+      error: (error as ErrorApiType).message,
     });
   }
 });

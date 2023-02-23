@@ -4,11 +4,11 @@ import { useAppDispatch, useAppHook } from 'renderer/hooks/useAppHook';
 import fetchAnimeById from 'renderer/store/effetcs/animeFetchEffect';
 import { watchListAction } from 'renderer/store/slices/watchListSlice';
 import { selectAnimes } from 'renderer/store/selectors/animeSelector';
-import AnimeType from 'renderer/types/Anime';
+import AnimeType from 'renderer/types/AnimeType';
 import Button from '../buttons/Button';
 import Styles from './AnimeRecommendCard.module.scss';
 import { useFetchRecommendationsQuery } from '../../store/slices/fetchApiSlice';
-import { AnimeRecommendation } from '../../types/AnimeRecommended';
+import { AnimeRecommendation } from '../../types/AnimeRecommendedType';
 
 export const AnimeRecommendCard = () => {
   const { data, error, isLoading } = useFetchRecommendationsQuery(0);

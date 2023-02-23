@@ -1,9 +1,9 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import type Anime from '../../types/Anime';
-import { AnimeRecommendation } from '../../types/AnimeRecommended';
+import type AnimeType from '../../types/AnimeType';
+import { AnimeRecommendation } from '../../types/AnimeRecommendedType';
 
 type DataAnime = {
-  data: Anime;
+  data: AnimeType;
 };
 
 type DataAnimeRecommendation = {
@@ -19,7 +19,7 @@ export const animeApi = createApi({
       transformResponse: (response: DataAnimeRecommendation) =>
         response.data.slice(0, 6),
     }),
-    fetchAnimeById: builder.query<Anime, number>({
+    fetchAnimeById: builder.query<AnimeType, number>({
       query: (id) => `/anime/${id}`,
       transformResponse: (response: DataAnime) => response.data,
     }),

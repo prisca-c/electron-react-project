@@ -1,9 +1,9 @@
 import { RootState } from '../store';
-import AnimeType from '../../types/Anime';
-import StatusType from '../../types/Status';
-import { AnimeState } from '../../types/AnimeState';
+import AnimeType from '../../types/AnimeType';
+import StatusType from '../../types/StatusType';
+import { AnimeStateType } from '../../types/AnimeStateType';
 
-const selectAnimes = (state: RootState): AnimeState => state.animes;
+const selectAnimes = (state: RootState): AnimeStateType => state.animes;
 
 const selectAnimesStatus = (state: RootState): StatusType =>
   state.animes.status;
