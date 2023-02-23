@@ -1,11 +1,11 @@
 import { ComponentProps } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
-import { useAppSelector } from '../../../hooks/useAppSelector';
+import { useAppHook } from '../../../hooks/useAppHook';
 import Styles from './WatchListNavIcon.module.scss';
 
 const WatchListNavIcon = (props: unknown) => {
-  const watchList = useAppSelector((state) => state.watchList.length);
+  const watchList = useAppHook((state) => state.watchList.length);
   const { setPopUp } = props;
 
   return (

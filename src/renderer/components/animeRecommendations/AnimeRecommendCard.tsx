@@ -1,6 +1,6 @@
 import { MouseEvent, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useAppDispatch, useAppSelector } from 'renderer/hooks/useAppSelector';
+import { useAppDispatch, useAppHook } from 'renderer/hooks/useAppHook';
 import fetchAnimeById from 'renderer/store/effetcs/animeFetchEffect';
 import { watchListAction } from 'renderer/store/slices/watchListSlice';
 import { selectAnimes } from 'renderer/store/selectors/animeSelector';
@@ -14,7 +14,7 @@ export const AnimeRecommendCard = () => {
   const { data, error, isLoading } = useFetchRecommendationsQuery(0);
   const [selectAnime, setSelectAnime] = useState<AnimeType | null>();
   const dispatch = useAppDispatch();
-  const animeSelector = useAppSelector(selectAnimes);
+  const animeSelector = useAppHook(selectAnimes);
 
   useEffect(() => {
     if (animeSelector !== null) {

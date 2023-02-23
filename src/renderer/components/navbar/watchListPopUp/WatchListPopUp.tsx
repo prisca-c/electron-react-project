@@ -1,11 +1,11 @@
-import { useAppSelector } from '../../../hooks/useAppSelector';
+import { useAppHook } from '../../../hooks/useAppHook';
 import { WatchListState } from '../../../store/slices/watchListSlice';
 import Styles from './WatchListPopUp.module.scss';
 import { selectWatchList } from '../../../store/selectors/watchListSelector';
 import WatchListPopUpItem from './watchListPopUpItem/WatchListPopUpItem';
 
 const WatchListPopUp = () => {
-  const state: WatchListState = useAppSelector(selectWatchList);
+  const state: WatchListState = useAppHook(selectWatchList);
 
   console.log(state);
 
