@@ -1,6 +1,5 @@
 import StatusType from './StatusType';
-import AnimeType from './AnimeType';
-import { nullAnimeType } from './AnimeType';
+import AnimeType, { nullAnimeType } from './AnimeType';
 
 export type AnimeStateType = {
   status: StatusType;
@@ -8,7 +7,7 @@ export type AnimeStateType = {
   error: string;
 };
 
-export const nullAnimeStateType: AnimeStateType = {
+export const nullAnimeState: AnimeStateType = {
   status: StatusType.start,
   info: nullAnimeType,
   error: '',

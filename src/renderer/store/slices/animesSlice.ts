@@ -1,28 +1,23 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { AnimeStateType } from 'renderer/types/AnimeStateType';
-import StatusType from '../../types/StatusType';
+import { AnimeStateType, nullAnimeState } from 'renderer/types/AnimeStateType';
 import {
   fetchAnimeFailureCase,
   fetchAnimeStartCase,
   fetchAnimeSuccessCase,
 } from '../actions/fetchAnimeActions';
 import fetchAnimeById from '../effetcs/animeFetchEffect';
-import { nullAnimeType } from '../../types/AnimeType';
 
-const initialState: AnimeStateType = {
-  status: StatusType.start,
-  info: nullAnimeType,
-  error: '',
-};
+const initialState: AnimeStateType = nullAnimeState;
 
 export const animesSlice = createSlice({
   name: 'animes',
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(fetchAnimeById.pending, fetchAnimeStartCase);
-    builder.addCase(fetchAnimeById.fulfilled, fetchAnimeSuccessCase);
-    builder.addCase(fetchAnimeById.rejected, fetchAnimeFailureCase);
+    builder
+      .addCase(fetchAnimeById.pending, fetchAnimeStartCase)
+      .addCase(fetchAnimeById.fulfilled, fetchAnimeSuccessCase)
+      .addCase(fetchAnimeById.rejected, fetchAnimeFailureCase);
   },
 });
 

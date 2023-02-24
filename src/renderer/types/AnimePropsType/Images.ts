@@ -4,15 +4,15 @@ export enum ImageFormat {
 }
 
 export type Image = {
-  image_url: string | null;
-  small_image_url: string | null;
-  large_image_url: string | null;
+  image_url: string;
+  small_image_url: string;
+  large_image_url: string;
 };
 
 export type Images = {
-  image_url: string | null;
-  small_image_url: string | null;
-  medium_image_url: string | null;
-  large_image_url: string | null;
-  maximum_image_url: string | null;
+  image_url: string;
+  small_image_url: string;
+  medium_image_url: string;
+  large_image_url: string;
+  maximum_image_url: string;
 };

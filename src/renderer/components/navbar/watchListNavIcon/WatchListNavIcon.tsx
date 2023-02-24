@@ -1,7 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { Dispatch, SetStateAction } from 'react';
-import { useAppSelector } from '../../../hooks/useAppSelector';
 import Styles from './WatchListNavIcon.module.scss';
 
 interface WatchListNavIconProps {
@@ -10,7 +9,6 @@ interface WatchListNavIconProps {
 }
 
 const WatchListNavIcon = (props: WatchListNavIconProps) => {
-  const watchList = useAppSelector((state) => state.watchList.count);
   const { setPopUp, showPopUp } = props;
 
   return (
@@ -26,7 +24,6 @@ const WatchListNavIcon = (props: WatchListNavIconProps) => {
         bounce
         size="1x"
       />
-      <p className={Styles.count}>{watchList}</p>
     </div>
   );
 };

@@ -1,41 +1,14 @@
-import { MouseEvent, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useAppDispatch, useAppSelector } from 'renderer/hooks/useAppSelector';
-import { watchListAction } from 'renderer/store/slices/watchListSlice';
-import { selectAnimes } from 'renderer/store/selectors/animeSelector';
-import AnimeType from 'renderer/types/AnimeType';
-import Button from '../buttons/Button';
 import Styles from './AnimeRecommendCard.module.scss';
-import { AnimeRecommendation } from '../../types/AnimeRecommendedType';
-import { getAnimeById } from '../../services/animeServices';
+import type { AnimeRecommendation } from '../../types/AnimeRecommendedType';
+import AddToWatchListButton from '../buttons/AddToWatchListButton/AddToWatchListButton';
 
 type AnimeRecommendCardProps = {
   data: AnimeRecommendation[];
 };
 
 export const AnimeRecommendCard = (props: AnimeRecommendCardProps) => {
-  const [selectAnime, setSelectAnime] = useState<AnimeType | null>();
-  const dispatch = useAppDispatch();
-  const animeSelector = useAppSelector(selectAnimes);
   const { data } = props;
-
-  useEffect(() => {
-    if (animeSelector !== null) {
-      setSelectAnime(animeSelector.info);
-    }
-  }, [animeSelector, selectAnime, dispatch]);
-
-  const checkIfAnimeExists = async (id: number) => {
-    await getAnimeById(id);
-  };
-
-  const addToWatchList = async (e: MouseEvent<HTMLButtonElement>) => {
-    const id = Number(e.currentTarget.value);
-    await checkIfAnimeExists(id).then((response) => {
-      dispatch(watchListAction.addAnime({ anime: animeSelector.info }));
-      return response;
-    });
-  };
 
   return (
     <>
@@ -52,17 +25,11 @@ export const AnimeRecommendCard = (props: AnimeRecommendCardProps) => {
               src={
                 anime.entry[0].images.webp.image_url ||
                 anime.entry[0].images.jpg.image_url ||
-                'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.flaticon.com%2Ffree-icon%2Fnull_5266799&psig=AOvVaw1aeRW8xUXzRuq9RK2NN6wI&ust=1677088041546000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCKDdt_mVp_0CFQAAAAAdAAAAABBD'
+                'https://shorturl.at/puxU0'
               }
               alt={anime.entry[0].title}
             />
-            <Button
-              onClick={addToWatchList}
-              variant="primary"
-              value={anime.entry[0].mal_id}
-            >
-              💟
-            </Button>
+            <AddToWatchListButton value={anime.entry[0].mal_id} />
           </div>
           <p>
             Recommended by: <b>{anime.user.username}</b>

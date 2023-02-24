@@ -1,18 +1,18 @@
 import { reducer } from 'renderer/store/slices/animesSlice';
 import fetchAnimeById from 'renderer/store/effetcs/animeFetchEffect';
-import { nullAnimeStateType } from 'renderer/types/AnimeStateType';
+import { nullAnimeState } from 'renderer/types/AnimeStateType';
 import { nullAnimeType } from 'renderer/types/AnimeType';
 import StatusType from 'renderer/types/StatusType';
 
 describe('animesSlice', () => {
   it('should return the initial state', () => {
-    expect(reducer(undefined, { type: undefined })).toEqual(nullAnimeStateType);
+    expect(reducer(undefined, { type: undefined })).toEqual(nullAnimeState);
   });
 
   it('should handle fetchAnimeById.pending', () => {
     const action = fetchAnimeById.pending('1', { id: 1 });
-    expect(reducer(nullAnimeStateType, action)).toEqual({
-      ...nullAnimeStateType,
+    expect(reducer(nullAnimeState, action)).toEqual({
+      ...nullAnimeState,
       status: StatusType.loading,
     });
   });
@@ -28,7 +28,7 @@ describe('animesSlice', () => {
       }
     );
 
-    expect(reducer(nullAnimeStateType, action)).toEqual({
+    expect(reducer(nullAnimeState, action)).toEqual({
       error: '',
       status: StatusType.success,
       info: nullAnimeType,
@@ -42,8 +42,8 @@ describe('animesSlice', () => {
       { id: 2 }
     );
 
-    expect(reducer(nullAnimeStateType, action)).toEqual({
-      ...nullAnimeStateType,
+    expect(reducer(nullAnimeState, action)).toEqual({
+      ...nullAnimeState,
       status: StatusType.failure,
       error: 'error',
     });

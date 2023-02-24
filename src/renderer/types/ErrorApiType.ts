@@ -6,4 +6,12 @@ type ErrorApiType = {
   report_url: string;
 };
 
+export const nullErrorApiType: ErrorApiType = {
+  status: 0,
+  type: '',
+  message: '',
+  error: '',
+  report_url: '',
+};
+
 export default ErrorApiType;

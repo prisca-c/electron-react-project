@@ -22,9 +22,10 @@ const Anime = () => {
 
       {data && (
         <div className={Styles.container}>
-          <h1 className="text-slate-500">{data.title}</h1>
+          <h1>{data.title}</h1>
           <img
             src={
+              data.images.jpg.image_url ||
               data.images.webp.image_url ||
               'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.flaticon.com%2Ffree-icon%2Fnull_5266799&psig=AOvVaw1aeRW8xUXzRuq9RK2NN6wI&ust=1677088041546000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCKDdt_mVp_0CFQAAAAAdAAAAABBD'
             }

@@ -22,6 +22,7 @@ describe('AnimeRecommendCard', () => {
 
   test('it should trigger the addToWatchList function', async () => {
     const recommendations = [nullAnimeRecommendation];
+    // const addToWatchList = jest.fn();
 
     const props = {
       data: recommendations,

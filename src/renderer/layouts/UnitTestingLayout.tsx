@@ -1,4 +1,4 @@
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, MemoryRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from '../store/store';
 
@@ -9,9 +9,9 @@ type TestLayoutProps = {
 export const UnitTestingLayout = (props: TestLayoutProps) => {
   const { children } = props;
   return (
-    <BrowserRouter>
+    <MemoryRouter>
       <Provider store={store}>{children}</Provider>
-    </BrowserRouter>
+    </MemoryRouter>
   );
 };
 

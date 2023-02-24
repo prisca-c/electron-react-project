@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import NavItem from './navItem/NavItem';
-import Styles from './Navbar.module.css';
+import Styles from './Navbar.module.scss';
 import WatchListNavIcon from './watchListNavIcon/WatchListNavIcon';
 import WatchListPopUp from './watchListPopUp/WatchListPopUp';
 
 const Navbar = () => {
   const [showPopUp, setShowPopUp] = useState(false);
-  const watchListNavIconProps = {
+  const showPopUpProps = {
     setPopUp: setShowPopUp,
     showPopUp,
   };
@@ -14,8 +14,8 @@ const Navbar = () => {
   return (
     <nav className={Styles.navbar}>
       <NavItem />
-      <WatchListNavIcon {...watchListNavIconProps} />
-      {showPopUp && <WatchListPopUp />}
+      <WatchListNavIcon {...showPopUpProps} />
+      {showPopUp && <WatchListPopUp {...showPopUpProps} />}
     </nav>
   );
 };

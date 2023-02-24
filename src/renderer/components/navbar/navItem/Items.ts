@@ -7,6 +7,10 @@ export const items = {
     to: '/anime',
     text: 'Anime',
   },
+  characters: {
+    to: '/characters',
+    text: 'Characters',
+  },
   contact: {
     to: '/contact',
     text: 'Contact',

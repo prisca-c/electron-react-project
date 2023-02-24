@@ -1,7 +1,9 @@
-import { AxiosStatic } from 'axios';
+import { AxiosError, AxiosStatic } from 'axios';
 import api from 'renderer/services/api';
 import { nullAnimeType } from 'renderer/types/AnimeType';
 import { getAnimeById } from '../animeServices';
+import ErrorApiType, { nullErrorApiType } from '../../types/ErrorApiType';
+import exp from 'constants';
 
 // Mocker est le faite de remplacer une méthode ou variable par
 // un placeholder qui remplira le même rôle que l'original,
